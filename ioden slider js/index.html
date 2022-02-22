@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+
+    <style>
+
+        .body {
+            color: white;
+        }
+    </style>
+
+</head>
+<body class="body" style="background-image: url(http://mmopilot.oesman.id/wp-content/themes/gamehoak/images/codezeel/body-bg.jpg);">
+    <div class="range-slider" style="margin: 20px 0;">
+        <h2>Choose Your Level</h2>
+        <input type="text" class="js-range-slider" value="" />
+    </div>
+    <div class="extra-controls"> 
+        <label for="">From Level</label>
+        <input type="text" class="js-input-from" value="0" />
+        <label for="">To Level</label>
+        <input type="text" class="js-input-to" value="0" />
+        <!-- <label for="">Price</label>
+        <input type="text" class="js-price" value="0" /> -->
+        <p class="lead">Total: $<span class="js-price">0</span>.00</p>
+        <button style="padding:10px; background-color: blue; font-weight: bold; border: none;" class="button"><a href="#" style="color: white; text-decoration: none;">Add To Cart</a></button>
+
+        <button style="padding:10px; background-color: green; font-weight: bold; border: none;" class="button"><a href="http://ionden.com/a/plugins/ion.rangeSlider/" target="_blank" style="color: white; text-decoration: none;">Dokumentasi Ioden Slider</a></button>
+    </div>
+
+
+
+
+<!--jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+<!--Plugin JavaScript file-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+<script>
+
+$(function() {
+
+    var $range = $(".js-range-slider"),
+    $inputFrom = $(".js-input-from"),
+    $inputTo = $(".js-input-to"),
+    $total = $(".js-price"),
+    instance,
+    min = 0,
+    max = 60,
+    from = 0,
+    to = 0;
+
+        // aritmatika kita disini
+        function sum () {
+        var total = instance.update({from: val}) + instance.update({to: val}) ;
+        $total.text(total);
+    };
+    
+
+    $range.ionRangeSlider({
+        skin: "big",
+        type: "double",
+        min: min,
+        max: max,
+        from: 0,
+        to: 60,
+        hide_min_max: true, 
+        onStart: updateInputs, 
+        onChange: updateInputs
+    });
+    
+    instance = $range.data("ionRangeSlider");
+
+    function updateInputs (data) {
+        from = data.from;
+        to = data.to;
+        
+        var fromstart = $inputFrom.prop("value", from);
+        var tofrom = $inputTo.prop("value", to);	
+
+    }
+
+    $inputFrom.on("input", function () {
+        var val = $(this).prop("value");
+        
+        // validate
+        if (val < min) {
+            val = min;
+        } else if (val > to) {
+            val = to;
+        }
+        
+        instance.update({
+            from: val
+        });
+    });
+
+    $inputTo.on("input", function () {
+        var val = $(this).prop("value");
+        
+        // validate
+        if (val < from) {
+            val = from;
+        } else if (val > max) {
+            val = max;
+        }
+        
+        instance.update({
+            to: val
+        });
+    });
+
+
+// untuk menutup function
+});
+
+console.log(fromstart );
+</script>
+</body>
+</html>
