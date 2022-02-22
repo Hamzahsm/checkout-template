@@ -6,6 +6,6 @@ $pdf=new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
 $pdf->Cell(40,10,'Billing Details');
-$pdf->Cell(60,10,'Powered by FPDF.',0,1,'C');
+$pdf->Cell(60,10,'Invoice MMOPILOT (masih proses).',0,1,'C');
 $pdf->Output();
 ?>

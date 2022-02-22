@@ -6,9 +6,20 @@
         die ("Error. No ID Selected!");    
     }
     // include "koneksi.php";
-    $conn = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
+    // $conn = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
+    $conn = mysqli_connect("localhost","root","","ssve");
     $query    =mysqli_query($conn, "SELECT * FROM add_to_cart WHERE id='$id'");
     $result    =mysqli_fetch_array($query);
+?>
+
+<?php 
+// if pay now button is clicked 
+
+if(isset($_POST['submit'])){
+    echo"<script>document.location.href = './pdf.php'</script>";
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,12 +116,12 @@
 
 <form class="row g-3" action="" method="POST">
   <div class="col-md-6">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" name="email">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
   </div>
   <div class="col-md-6">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" name="password">
+    <label for="Email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="Email" name="Email" required>
   </div>
   <div class="col-12">
     <label for="adress" class="form-label">Address</label>

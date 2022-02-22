@@ -1,16 +1,20 @@
 <!-- koneksi ke DB -->
 <?php
- $con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
+//  $con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
+
+ $con = mysqli_connect("localhost","root","","ssve");
 
  if(isset($_POST['submit'])) {
     //  echo"<script>alert('satu dua tiga');</script>";
     // tangkap element input
+    $fromlevel = $_POST['fromlevel'];
+    $tolevel = $_POST['tolevel'];
     $toping1 = $_POST['toping1'];
     $toping2 = $_POST['toping2'];
     $toping3 = $_POST['toping3'];
     $toping4 = $_POST['toping4'];
 
-    $query = "INSERT INTO add_to_cart (toping1, toping2, toping3, toping4) VALUES ('$toping1', '$toping2', '$toping3', '$toping4')";
+    $query = "INSERT INTO add_to_cart (fromlevel, tolevel, toping1, toping2, toping3, toping4) VALUES ('$fromlevel', '$tolevel', '$toping1', '$toping2', '$toping3', '$toping4')";
 
     $query_run = mysqli_query($con, $query); 
  
@@ -127,12 +131,12 @@
     <p>&nbsp;</p>
     <div>
         <h4 class="text-bold">From Level </h4>
-        <div id="slider-padding-value-min"></div> 
+        <div id="slider-padding-value-min" name="fromlevel"></div> 
     </div>
 
     <div>
         <h4 class="text-bold">To Level</h4>
-        <div id="slider-padding-value-max"></div>
+        <div id="slider-padding-value-max" name="tolevel"></div>
     </div>
 
     <div>
@@ -144,24 +148,24 @@
         <h4 class="text-bold">Topping</h4>
         <label for="">Toping 1 ($ 10)</label>
         <label class="switch" > 
-            <input type="checkbox" name="toping1" value="10">
+            <input type="checkbox" name="toping1" value="10 Toping 1">
             <span class="slider round"></span>
         </label>
 
         <label for="" class="kiri">Toping 2 ($ 20)</label>
         <label class="switch" > 
-            <input type="checkbox" name="toping2" value="20">
+            <input type="checkbox" name="toping2" value="20 Toping 2">
             <span class="slider round"></span>
         </label>
 
         <label for="" class="kiri">Toping 3 ($ 30) </label>
         <label class="switch" > 
-            <input type="checkbox" name="toping3" value="30">
+            <input type="checkbox" name="toping3" value="30 Toping 3">
             <span class="slider round"></span>
         </label>
         <label for="" class="kiri">Toping 4 ($ 40) </label>
         <label class="switch" > 
-            <input type="checkbox" name="toping4" value="40">
+            <input type="checkbox" name="toping4" value="40 Toping 4">
             <span class="slider round"></span>
         </label>
     </div>
