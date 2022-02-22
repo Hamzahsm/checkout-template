@@ -6,7 +6,7 @@
         die ("Error. No ID Selected!");    
     }
     // include "koneksi.php";
-    $conn = mysqli_connect("localhost","root","","ssve");
+    $conn = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
     $query    =mysqli_query($conn, "SELECT * FROM add_to_cart WHERE id='$id'");
     $result    =mysqli_fetch_array($query);
 ?>

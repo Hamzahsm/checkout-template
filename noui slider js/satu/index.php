@@ -1,6 +1,6 @@
 <!-- koneksi ke DB -->
 <?php
- $con = mysqli_connect('localhost', 'root', '', 'ssve');
+ $con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
 
  if(isset($_POST['submit'])) {
     //  echo"<script>alert('satu dua tiga');</script>";
